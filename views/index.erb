@@ -1,10 +1,7 @@
-<h1>IdeaBox</h1>
-
 <%= erb :form, locals: {idea: idea} %>
 
-<h3>Existing Ideas</h3>
-
 <ul>
+<table class="table">
   <% ideas.each do |idea| %>
     <li>
       <%= idea.title %><br/>
@@ -20,4 +17,5 @@
       </form>
     </li>
   <% end %>
+</table>
 </ul>
