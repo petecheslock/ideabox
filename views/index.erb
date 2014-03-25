@@ -1,21 +1,28 @@
 <%= erb :form, locals: {idea: idea} %>
 
-<ul>
-<table class="table">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Idea</th>
+      <th>Description</th>
+    </tr>
+  </thead>
   <% ideas.each do |idea| %>
-    <li>
-      <%= idea.title %><br/>
-      <%= idea.description %><br/>
-      Rank:<%= idea.rank %>
-      <form action='/<%= idea.id %>/like' method='POST' style="display: inline">
-        <input type='submit' value="+"/>
-      </form>
-      <a href="/<%= idea.id %>/edit">Edit</a>
-      <form action='/<%= idea.id %>' method='POST'>
-        <input type="hidden" name="_method" value="DELETE">
-        <input type='submit' value="delete"/>
-      </form>
-    </li>
+  <tbody>
+    <tr>
+      <td><span class="badge"><%= idea.rank %></span></td>
+      <td><%= idea.title %></td>
+      <td><%= idea.description %></td>
+      <td><form action='/<%= idea.id %>/like' method='POST' style="display: inline">
+        <input type='submit' class="btn btn-default"value="Increase Rank"/>
+        </form></td>
+      <td><a href="/<%= idea.id %>/edit" class="btn btn-default">Edit</a>
+        <form action='/<%= idea.id %>' method='POST'></td>
+      <td><input type="hidden" name="_method" value="DELETE">
+        <input type='submit' class="btn btn-default" value="Delete"/>
+        </form></td>
   <% end %>
+    </tr>
+  </tbody>
 </table>
-</ul>
