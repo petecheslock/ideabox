@@ -38,3 +38,10 @@ post '/:id/like' do |id|
   IdeaStore.update(id.to_i, idea.to_h)
   redirect '/'
 end
+
+post '/:id/hate' do |id|
+  idea = IdeaStore.find(id.to_i)
+  idea.hate!
+  IdeaStore.update(id.to_i, idea.to_h)
+  redirect '/'
+end

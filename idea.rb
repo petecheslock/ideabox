@@ -29,6 +29,10 @@ class Idea
     @rank += 1
   end
 
+  def hate!
+    @rank -= 1
+  end
+
   def <=>(other)
     other.rank <=> rank
   end
